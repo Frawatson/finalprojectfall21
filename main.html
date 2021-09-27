@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCAC Score predictor</title>
+    <link rel="stylesheet" href="main.css">
+    <script type = "module" src="main.js"></script>
+</head>
+<body>
+    <iframe id="kcac-data" src="https://www.kcacsports.com/"></iframe>
+
+    <div class = "kcac-standing">
+        <h1> KCAC Standing </h1>
+        <ol></ol>
+    </div>
+
+    <div class="todays-matches">
+        <div class = "Matches">
+            <h1>Today's Matches</h1>
+            <br>
+            <h1>ScoreBoard</h1>
+            <p><class id='current_date'></class></p>
+            <p>Home Team</p>
+            <p id="elapsed">45'</p>
+            <p>Away Team</p>
+        </div>
+
+        <div class="matches">
+            <div class="team">
+                <img id="Homelogo">
+                <p id="homeName">Team name</p>
+            </div>
+            <p id="goals">0 - 0</p>
+            <div class="team">
+                <img id="awaylogo">
+                <p id="awayName">Team name</p>
+            </div>
+
+        </div>
+    </div>
+    
+    <div class="future-matches">
+        <div class = "Match">
+            <h1>Future Matches</h1>
+            <br>
+            <h1>ScoreBoard</h1>
+            <p><class id='future_date'></class></p>
+            <p>Home Team</p>
+            <p id="elapsed">45'</p>
+            <p>Away Team</p>
+        </div>
+
+        <div class="match">
+            <div class="team">
+                <img id="Homelogo">
+                <p id="home">Team name</p>
+            </div>
+            <p id="goals">0 - 0</p>
+            <div class="teamName">
+                <img id="awaylogo">
+                <p id="awayName">Team name</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="team-selection">
+        <label for="teamSelection">Select Home team</label>
+        <input type="text" list="HomeTeamSelector"/>
+        <datalist id="HomeTeamSelector">
+            <option value="Oklahoma Wesleyan"></option>
+            <option value="Saint Mary"></option>
+            <option value="Bethany"></option>
+            <option value="McPherson"></option>
+            <option value="Southwestern"></option>
+            <option value="Bethel"></option>
+            <option value="Ottawa"></option>
+            <option value="Kansas Wesleyan"></option>
+            <option value="Friends"></option>
+            <option value="Sterlings"></option>
+            <option value="Avila"></option>
+            <option value="Tabor"></option>
+            <option value="York"></option>
+        </datalist>
+        <label for="teamSelection">Select Away team</label>
+        <input type="text" list="HomeTeamSelector"/>
+        <datalist id="HomeTeamSelector">
+            <option value="Oklahoma Wesleyan"></option>
+            <option value="Saint Mary"></option>
+            <option value="Bethany"></option>
+            <option value="McPherson"></option>
+            <option value="Southwestern"></option>
+            <option value="Bethel"></option>
+            <option value="Ottawa"></option>
+            <option value="Kansas Wesleyan"></option>
+            <option value="Friends"></option>
+            <option value="Sterlings"></option>
+            <option value="Avila"></option>
+            <option value="Tabor"></option>
+            <option value="York"></option>
+        </datalist>
+    </div>
+    
+</body>
+</html>
