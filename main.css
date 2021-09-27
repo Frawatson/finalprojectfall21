@@ -1,3 +1,5 @@
+/* GLOBAL SETTINGS */
+
 *{
     margin: 0;
     padding: 0;
@@ -11,30 +13,35 @@ body{
     background-image: url("bg.jfif");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: cover;
+    background-position: center;
 }
 
+iframe {
+    display: none; 
+}
+
+/* MATCH DATA CONTAINER */
+
+#match-data {
+    display: flex; 
+    justify-content: space-evenly;
+}
+
+/* STANDING */
+
 .kcac-standing{
-    position: absolute;
     background-color: black;
     color: white;
     padding: 16pdx;
-    top: 23.5%;
-    left: 85%;
-    transform: translate(-50%, -50%);
     width: 30%;
     border-radius: 10px;
     text-transform: uppercase;
 }
 
 .todays-matches{
-    position: absolute;
     background-color: black;
     color: white;
     padding: 16pdx;
-    top: 52.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 35%;
     border-radius: 8px;
     text-transform: uppercase;
@@ -52,13 +59,9 @@ body{
 }
 
 .future-matches{
-    position: absolute;
     background-color: black;
     color: white;
     padding: 16pdx;
-    top: 23.5%;
-    right:55%;
-    transform: translate(-50%, -50%);
     width: 30%;
     border-radius: 8px;
     text-transform: uppercase;
