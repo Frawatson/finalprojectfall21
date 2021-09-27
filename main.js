@@ -2,57 +2,50 @@ window.addEventListener('DOMContentLoaded', DOMContentLoaded => {
     const kcac_data = document.querySelector('iframe#kcac-data'); 
     console.log(kcac_data); 
     
-    get_standing(); 
+    const teams = get_teams(); 
+
+    populate_dropdowns(teams); 
+    get_standing(teams); 
     get_todays_matches(); 
     get_future_matches(); 
-    get_team_names();
 }); 
 
-/*
-const get_team_names = () =>{
-    const team_name = [
-        {name: 'Oklahoma Wesleyan'},
-        {name: 'Saint Mary'},
-        {name: 'Bethany'}, 
-        {name: 'McPherson'},
-        {name: 'Southwestern'},
-        {name: 'Bethel'},
-        {name: 'Ottawa'},
-        {name: 'Kansas Wesleyan'},
-        {name: 'Friends'},
-        {name: 'Sterlings'},
-        {name: 'Avila'},
-        {name: 'Tabor'},
-        {name: 'York' },
-    ]; 
-
-    team_name.forEach(team => {
-        const team_data_list = document.createElement('datalist');
-        team_data_list.innerHTML = team_name
-        document.querySelector('.team-selection HomeTeamSelector').appendChild('team_data_list')
+const populate_dropdowns = teams =>{
+    teams.forEach(team => {
+        const option = document.createElement('option'); 
+        option.setAttribute('value', team.name); 
+        document.querySelector('.team-selection #HomeTeamSelector').appendChild(option)
+        
+        const option_away = document.createElement('option'); 
+        option_away.setAttribute('value', team.name); 
+        document.querySelector('.team-selection #AwayTeamSelector').appendChild(option_away); 
     });
 };
-*/
-const get_standing = () => {
-    const team_names = [
-        {name: 'Oklahoma Wesleyan', wins: 0, losses: 0},
-        {name: 'Saint Mary', wins: 0, losses: 0},
-        {name: 'Bethany', wins: 0, losses: 0},
-        {name: 'McPherson', wins: 0, losses: 0},
-        {name: 'Southwestern', wins: 0, losses: 0},
-        {name: 'Bethel', wins: 0, losses: 0},
-        {name: 'Ottawa', wins: 0, losses: 0},
-        {name: 'Kansas Wesleyan', wins: 0, losses: 0},
-        {name: 'Friends', wins: 0, losses: 0},
-        {name: 'Sterling', wins: 0, losses: 0},
-        {name: 'Avila', wins: 0, losses: 0},
-        {name: 'Tabor', wins: 0, losses: 0},
-        {name: 'York', wins: 0, losses: 0},
-    ]; 
 
-    team_names[8].wins = 10; 
+
+const get_teams = () => {
+    return [
+       {name: 'Oklahoma Wesleyan', wins: 0, losses: 0},
+       {name: 'Saint Mary', wins: 0, losses: 0},
+       {name: 'Bethany', wins: 0, losses: 0},
+       {name: 'McPherson', wins: 0, losses: 0},
+       {name: 'Southwestern', wins: 0, losses: 0},
+       {name: 'Bethel', wins: 0, losses: 0},
+       {name: 'Ottawa', wins: 0, losses: 0},
+       {name: 'Kansas Wesleyan', wins: 0, losses: 0},
+       {name: 'Friends', wins: 0, losses: 0},
+       {name: 'Sterling', wins: 0, losses: 0},
+       {name: 'Avila', wins: 0, losses: 0},
+       {name: 'Tabor', wins: 0, losses: 0},
+       {name: 'York', wins: 0, losses: 0},
+    ]; 
+}
+
+const get_standing = teams => {
+
+    teams[8].wins = 10; 
     
-    team_names.forEach(team => {
+    teams.forEach(team => {
         const team_li = document.createElement('li'); 
         team_li.innerHTML = `<b>${team.name}</b> : ${team.wins} <em>WINS</em> | ${team.losses} <em>LOSSES</em>`; 
         document.querySelector('.kcac-standing ol').appendChild(team_li); 
