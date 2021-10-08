@@ -1,14 +1,14 @@
 window.addEventListener('DOMContentLoaded', DOMContentLoaded => {
-    const kcac_data = document.querySelector('iframe#kcac-data'); 
-    console.log(kcac_data); 
-    
     const teams = get_teams(); 
-
+    
     populate_dropdowns(teams); 
-    get_standing(teams); 
     get_todays_matches(); 
     get_future_matches();
     update_standing(teams);
+    populate_standing(teams); 
+    
+    const kcac = document.querySelector('#kcac-data'); 
+    console.log(kcac.contentWindow.document.body); 
 }); 
 
 const populate_dropdowns = teams =>{
@@ -44,12 +44,14 @@ const get_teams = () => {
 }
 
 
-const get_standing = teams => {
+const populate_standing = teams => {
+    const standing_el = document.querySelector('.kcac-standing ol'); 
+    standing_el.innerHTML = ''; 
 
     teams.forEach(team => {
         const team_li = document.createElement('li'); 
         team_li.innerHTML = `<b>${team.name}</b> : ${team.wins} <em>WINS</em> | ${team.losses} <em>LOSSES</em>| ${team.tie} <em>Ties</em>`; 
-        document.querySelector('.kcac-standing ol').appendChild(team_li); 
+        standing_el.appendChild(team_li); 
     }); 
 
     //console.log('TEST'); 
@@ -58,15 +60,13 @@ const get_standing = teams => {
 const update_standing = teams => {
     teams.forEach(team =>{
         teams.sort((a, b) =>
-        b.wins - a.wins ||
-        b.tie - a.tie||
-        b.losses - a.losses ||
-        team[a.team] - team[a.team]
+            b.wins - a.wins ||
+            b.tie - a.tie||
+            b.losses - a.losses ||
+            team[a.team] - team[a.team]
         );
     });
-
-
-}
+}; 
 
 const get_todays_matches = () => {
     var current_date = new Date();
