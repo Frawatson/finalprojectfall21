@@ -7,7 +7,8 @@ window.addEventListener('DOMContentLoaded', DOMContentLoaded => {
     populate_dropdowns(teams); 
     get_standing(teams); 
     get_todays_matches(); 
-    get_future_matches(); 
+    get_future_matches();
+    update_standing(teams);
 }); 
 
 const populate_dropdowns = teams =>{
@@ -25,34 +26,47 @@ const populate_dropdowns = teams =>{
 
 const get_teams = () => {
     return [
-       {name: 'Oklahoma Wesleyan', wins: 0, losses: 0},
-       {name: 'Saint Mary', wins: 0, losses: 0},
-       {name: 'Bethany', wins: 0, losses: 0},
-       {name: 'McPherson', wins: 0, losses: 0},
-       {name: 'Southwestern', wins: 0, losses: 0},
-       {name: 'Bethel', wins: 0, losses: 0},
-       {name: 'Ottawa', wins: 0, losses: 0},
-       {name: 'Kansas Wesleyan', wins: 0, losses: 0},
-       {name: 'Friends', wins: 0, losses: 0},
-       {name: 'Sterling', wins: 0, losses: 0},
-       {name: 'Avila', wins: 0, losses: 0},
-       {name: 'Tabor', wins: 0, losses: 0},
-       {name: 'York', wins: 0, losses: 0},
+       {name: 'Oklahoma Wesleyan', wins: 6, losses: 0, tie: 0},
+       {name: 'Saint Mary', wins: 1, losses: 5, tie: 0},
+       {name: 'Bethany', wins: 1, losses: 4, tie: 0},
+       {name: 'McPherson', wins: 5, losses: 1, tie: 0},
+       {name: 'Southwestern', wins: 2, losses: 3, tie: 1},
+       {name: 'Bethel', wins: 3, losses: 2, tie: 0},
+       {name: 'Ottawa', wins: 3, losses: 2, tie: 0},
+       {name: 'Kansas Wesleyan', wins: 0, losses: 5, tie: 0},
+       {name: 'Friends', wins: 5, losses: 0, tie: 1},
+       {name: 'Sterling', wins: 2, losses: 3, tie: 0},
+       {name: 'Avila', wins: 0, losses: 4, tie: 2},
+       {name: 'Tabor', wins: 4, losses: 1, tie: 0},
+       {name: 'York', wins: 2, losses: 4, tie: 0},
     ]; 
+
 }
+
 
 const get_standing = teams => {
 
-    teams[8].wins = 10; 
-    
     teams.forEach(team => {
         const team_li = document.createElement('li'); 
-        team_li.innerHTML = `<b>${team.name}</b> : ${team.wins} <em>WINS</em> | ${team.losses} <em>LOSSES</em>`; 
+        team_li.innerHTML = `<b>${team.name}</b> : ${team.wins} <em>WINS</em> | ${team.losses} <em>LOSSES</em>| ${team.tie} <em>Ties</em>`; 
         document.querySelector('.kcac-standing ol').appendChild(team_li); 
     }); 
 
-    console.log('TEST'); 
+    //console.log('TEST'); 
 }; 
+
+const update_standing = teams => {
+    teams.forEach(team =>{
+        teams.sort((a, b) =>
+        b.wins - a.wins ||
+        b.tie - a.tie||
+        b.losses - a.losses ||
+        team[a.team] - team[a.team]
+        );
+    });
+
+
+}
 
 const get_todays_matches = () => {
     var current_date = new Date();
