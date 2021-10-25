@@ -1,0 +1,100 @@
+/* GLOBAL SETTINGS */
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+body{
+  height: 100vh;
+  /* background-image: url("/images/bg.jfif"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+iframe {
+  display: none; 
+}
+
+/* MATCH DATA CONTAINER */
+
+#match-data {
+  display: flex; 
+  justify-content: space-evenly;
+}
+
+/* STANDING */
+
+.kcac-standing{
+  background-color: black;
+  color: white;
+  padding: 16pdx;
+  width: 30%;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.todays-matches{
+  background-color: black;
+  color: white;
+  padding: 16pdx;
+  width: 35%;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.matches{
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.future-matches{
+  background-color: black;
+  color: white;
+  padding: 16pdx;
+  width: 30%;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.match{
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.title-box #goals {
+  font-size: 2.5rem;
+}
+
+.team{
+  width: 160px;
+}
+
+.team img{
+  height: 25px;
+  width: 25px;
+}
+
+.team-selection{
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 16pdx;
+  top: 50%
+}
