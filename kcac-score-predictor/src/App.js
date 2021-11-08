@@ -1,10 +1,14 @@
 import logo from './logo.svg';
+import Live from './components/Live.js'; 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       {/* <iframe id="kcac-data" src="https://www.kcacsports.com/"></iframe> */}
+
+      <iframe id="kcac-data" src="https://www.kcacsports.com/"></iframe>
+      {/* {document.querySelector('#kcac-data').contentWindow.document.body} */}
 
       <div id="match-data">
           <div class = "kcac-standing">
@@ -62,6 +66,8 @@ function App() {
               </div>
           </div>
       </div>
+
+      <Live />
 
       <div class="team-selection">
           <label for="teamSelection">Select Home team</label>

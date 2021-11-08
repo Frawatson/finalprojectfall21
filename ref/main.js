@@ -8,7 +8,8 @@ window.addEventListener('DOMContentLoaded', DOMContentLoaded => {
     populate_standing(teams); 
     
     const kcac = document.querySelector('#kcac-data'); 
-    console.log(kcac.contentWindow.document.body); 
+    console.log('KCAC SITE'); 
+    console.log(kcac.contentWindow.document.querySelector('div')); 
 }); 
 
 const populate_dropdowns = teams =>{
