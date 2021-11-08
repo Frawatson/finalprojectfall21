@@ -4,6 +4,7 @@ const Live = () => {
     return (
         <div>
             This is the live component
+            This is where all the live games will go.
         </div>
     )
 }; 
