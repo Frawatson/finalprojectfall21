@@ -2,9 +2,8 @@ import React from 'react';
 
 const Live = () => {
     return (
-        <div>
-            This is the live component
-            This is where all the live games will go.
+        <div className="Live-Matches">
+            <h1>Live</h1>
         </div>
     )
 }; 

@@ -1,100 +1,61 @@
-/* GLOBAL SETTINGS */
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  font-family: Arial, Helvetica, sans-serif;
+/* Global setting*/
+.container {
+  background-color: #f5f5f5;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2px 2px;
+  grid-template-areas: 
+  "Kcac-standing Live-Matches Live-Matches"
+  "Kcac-standing Future-Matches Future-Matches"
+  "Match-Predictor Match-Predictor Match-Predictor";
+}
+/* Kcac standing setting*/
+.Kcac-standing{
+  grid-area: Kcac-standing;
+  background-color:paleturquoise;
+  border-style: solid;
+  border-color: black;
+ }
+.Kcac-standing h1{
   text-align: center;
 }
 
-body{
-  height: 100vh;
-  /* background-image: url("/images/bg.jfif"); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+/* Live Matches setting*/
+.Live-Matches { 
+  grid-area: Live-Matches;
+  background-color:paleturquoise;
+  border-style: solid;
+  border-color: black;
+}
+.Live-Matches h1 {
+  text-align: center;
 }
 
-iframe {
-  display: none; 
+/* Future Matches setting*/
+.Future-Matches{ 
+  grid-area: Future-Matches;
+  background-color:paleturquoise;
+  border-style: solid;
+  border-color: black;
+}
+.Future-Matches h1{
+  text-align: center;
 }
 
-/* MATCH DATA CONTAINER */
-
-#match-data {
-  display: flex; 
-  justify-content: space-evenly;
+/* Match Predictor setting*/
+.Match-Predictor { 
+  grid-area: Match-Predictor;
+  background-color:paleturquoise;
+  border-style: solid;
+  border-color: black;
+}
+.Match-Predictor h1 {
+  text-align: center;
 }
 
-/* STANDING */
-
-.kcac-standing{
-  background-color: black;
-  color: white;
-  padding: 16pdx;
-  width: 30%;
-  border-radius: 10px;
-  text-transform: uppercase;
-}
-
-.todays-matches{
-  background-color: black;
-  color: white;
-  padding: 16pdx;
-  width: 35%;
-  border-radius: 8px;
-  text-transform: uppercase;
-}
-
-.matches{
-  margin: 20px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  font-size: 1.5rem;
-}
-
-.future-matches{
-  background-color: black;
-  color: white;
-  padding: 16pdx;
-  width: 30%;
-  border-radius: 8px;
-  text-transform: uppercase;
-}
-
-.match{
-  margin: 20px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  font-size: 1.5rem;
-}
-
-.title-box #goals {
-  font-size: 2.5rem;
-}
-
-.team{
-  width: 160px;
-}
-
-.team img{
-  height: 25px;
-  width: 25px;
-}
-
-.team-selection{
-  position: absolute;
-  background-color: black;
-  color: white;
-  padding: 16pdx;
-  top: 50%
+#kcac-data{
+  display: none;
 }
