@@ -5,7 +5,7 @@ function KcacStanding (){
     return (
         <div className="Kcac-standing">
             {
-                Teamnames.map(teamname => <li>{Teamnames}</li>)
+                Teamnames.map(teamname => <li>{teamname}</li>)
             }
         </div>
     )
