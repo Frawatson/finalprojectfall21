@@ -37,6 +37,9 @@
 .Live-Matches h1 {
   text-align: center;
 }
+.Live-Matches p{
+  text-align: center;
+}
 
 /* Future Matches setting*/
 .Future-Matches{ 
@@ -48,6 +51,9 @@
 .Future-Matches h1{
   text-align: center;
 }
+.Future-Matches p {
+  text-align: center;
+}
 
 /* Match Predictor setting*/
 .Match-Predictor { 
@@ -57,6 +63,9 @@
   border-color: black;
 }
 .Match-Predictor h1 {
+  text-align: center;
+}
+.Match-Predictor p {
   text-align: center;
 }
 
