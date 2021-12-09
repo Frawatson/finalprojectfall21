@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { RecordContext } from '../App'; 
 
 function KcacStanding (){
-    const Teamnames = ['Oklahoma Wesleyan', 'Tabor','Friends','York','Sterling','Southwestern', 'Bethel', 'Saint Mary', 'Ottawa', 'Kansas Wesleyan', 'Bethany', 'Avila']
+    const { record, setRecord } = useContext(RecordContext); 
+    
     return (
         <div className="Kcac-standing">
+            <h1>
+                KCAC Standings
+            </h1>
             {
-                Teamnames.map(teamname => <li>{teamname}</li>)
+                record.map((team, index) => {
+                    return (
+                        <div>
+                            {index + 1}. {team.name} : {team.wins}
+                        </div>
+                    )
+                })
             }
         </div>
     )

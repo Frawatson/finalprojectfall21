@@ -1,3 +1,5 @@
+import { createContext, useMemo, useState } from 'react';
+
 import './App.css';
 import Live from './components/Live.js'; 
 import KcacStanding from './components/KcacStanding';
@@ -6,12 +8,15 @@ import MatchPredictor from './components/MatchPredictor';
 
 import octoparse from './mocking/octoparse.json'; 
 
+export const RecordContext = new createContext()
+
 function App () {
+    
     const standings = []; 
     standings.push(octoparse[0].Field2_text);
     standings.push(octoparse[0].Field3_text);
     standings.push(octoparse[0].Field4_text);
-    standings.push(octoparse[0].Field5_text);
+    standings.push(octoparse[0].Field5.trim('\n'));
     standings.push(octoparse[0].Field6_text);
     standings.push(octoparse[0].Field7_text);
     standings.push(octoparse[0].Field8_text);
@@ -21,10 +26,6 @@ function App () {
     standings.push(octoparse[0].Field12_text);
     standings.push(octoparse[0].Field13_text);
     standings.push(octoparse[0].Field14_text);
-
-    for (let index = 0; index < standings.length; index++) {
-        console.log(standings[index])
-    }
 
     const wins = [];
     wins.push(octoparse[0].Field15)
@@ -41,20 +42,28 @@ function App () {
     wins.push(octoparse[0].Time10)
     wins.push(octoparse[0].Time11)
 
+    const [ record, setRecord ] = useState([]); 
     for (let index = 0; index < wins.length; index++) {
-        console.log(wins[index]); 
+        record.push({
+            name: standings[index], 
+            wins: wins[index], 
+        }); 
     }
-
+    const recordContext = useMemo(() => ({
+        record, setRecord
+    }), [ record, setRecord ]); 
+    console.log('RECORD', record); 
     
     return(
         <div className="container">
             <iframe id="kcac-data" src="https://www.kcacsports.com/"></iframe>
             {/*{document.querySelector('#kcac-data').contentWindow.document.body}*/}
-            <KcacStanding/>
-            <Live/>
-            <FutureMatches/>
-            <MatchPredictor/>
-            
+            <RecordContext.Provider value={ recordContext }>
+                <KcacStanding/>
+                <Live/>
+                <FutureMatches/>
+                <MatchPredictor/>
+            </RecordContext.Provider>
         </div>
         
     );
